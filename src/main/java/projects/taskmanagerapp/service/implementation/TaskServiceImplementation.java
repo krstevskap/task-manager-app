@@ -36,9 +36,7 @@ public class TaskServiceImplementation implements TaskService {
 
     @Override
     public Task saveTask(String title, LocalDateTime dueDate, boolean completed, Long userId, Category category, Priority priority) {
-        User user = userRepository.findById(userId).orElse(null);
-        if (user == null) return null;
-        Task task = new Task(title, dueDate, completed, user, category, priority);
+        Task task = new Task(title, dueDate, completed, category, priority);
         return taskRepository.save(task);
     }
 
