@@ -1,7 +1,7 @@
 package projects.taskmanagerapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.scheduling.config.Task;
+import projects.taskmanagerapp.model.Task;
 import projects.taskmanagerapp.model.enums.Category;
 import projects.taskmanagerapp.model.enums.Priority;
 import projects.taskmanagerapp.model.enums.Status;

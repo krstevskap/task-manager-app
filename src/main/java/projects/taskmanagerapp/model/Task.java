@@ -1,6 +1,7 @@
 package projects.taskmanagerapp.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import projects.taskmanagerapp.model.enums.Category;
 import projects.taskmanagerapp.model.enums.Priority;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
+@Data
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,13 +29,13 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    public Task(String title, LocalDateTime dueDate, boolean completed, User user, Category category, Priority priority, Status status) {
+    public Task(String title, LocalDateTime dueDate, boolean completed, User user, Category category, Priority priority) {
         this.title = title;
         this.dueDate = dueDate;
         this.completed = completed;
         this.user = user;
         this.category = category;
         this.priority = priority;
-        this.status = status;
+        this.status = Status.PENDING;
     }
 }
