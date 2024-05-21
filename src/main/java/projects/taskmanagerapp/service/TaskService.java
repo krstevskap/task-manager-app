@@ -1,7 +1,6 @@
 package projects.taskmanagerapp.service;
 
 import projects.taskmanagerapp.model.Task;
-import projects.taskmanagerapp.model.User;
 import projects.taskmanagerapp.model.enums.Category;
 import projects.taskmanagerapp.model.enums.Priority;
 import projects.taskmanagerapp.model.enums.Status;
