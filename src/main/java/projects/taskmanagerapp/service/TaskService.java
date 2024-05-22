@@ -19,4 +19,6 @@ public interface TaskService {
 
     void deleteTaskById(Long taskId);
 
+    Task addTaskToUser(Long userId, Long taskId);
+
 }

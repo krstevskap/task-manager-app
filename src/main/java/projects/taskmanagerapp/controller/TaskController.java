@@ -8,6 +8,7 @@ import projects.taskmanagerapp.service.TaskService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/tasks")
 public class TaskController {
     private final TaskService taskService;
@@ -55,5 +56,10 @@ public class TaskController {
     @DeleteMapping("/delete/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTaskById(id);
+    }
+
+    @PostMapping("/add-to-user/{userId}/{taskId}")
+    public Task addTaskToUser(@PathVariable Long userId, @PathVariable Long taskId) {
+        return taskService.addTaskToUser(userId, taskId);
     }
 }

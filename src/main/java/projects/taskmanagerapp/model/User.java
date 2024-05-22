@@ -1,5 +1,7 @@
 package projects.taskmanagerapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,14 +18,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String username;
     private String lastName;
     private String email;
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Task> tasks;
 
-    public User(String name, String lastName, String email, String password) {
+    public User(String username, String name, String lastName, String email, String password) {
+        this.username = username;
         this.name = name;
         this.lastName = lastName;
         this.email = email;

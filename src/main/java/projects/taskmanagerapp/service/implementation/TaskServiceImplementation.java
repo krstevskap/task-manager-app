@@ -59,4 +59,13 @@ public class TaskServiceImplementation implements TaskService {
     public void deleteTaskById(Long taskId) {
         this.taskRepository.deleteById(taskId);
     }
+
+    @Override
+    public Task addTaskToUser(Long userId, Long taskId) {
+        User user = userRepository.findById(userId).orElse(null);
+        Task task = this.findTaskById(taskId);
+        if(user==null || task==null) return null;
+        task.setUser(user);
+        return taskRepository.save(task);
+    }
 }
